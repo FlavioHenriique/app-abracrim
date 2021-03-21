@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:circular_check_box/circular_check_box.dart';
 
+import 'inicial.dart';
+
 class TelaLogin extends StatefulWidget {
   TelaLogin({Key key}) : super(key: key);
 
@@ -34,23 +36,21 @@ class _TelaLoginState extends State<TelaLogin> {
   void login() {
     if (campoUsuarioController.text == "teste" &&
         campoSenhaController.text == "teste") {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            // Retrieve the text the that user has entered by using the
-            // TextEditingController.
-            content: Text("logado"),
-          );
-        },
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TelaInicial()),
       );
+    } else {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text("Usuário não encontrado"),
+      ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         body: Padding(
             padding: EdgeInsets.all(50.0),
             child: Column(
