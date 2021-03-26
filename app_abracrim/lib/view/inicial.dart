@@ -53,57 +53,101 @@ class _TelaInicialState extends State<TelaInicial> {
                   ),
                 ),
               ),
-              Expanded(
+              Row(children: [
+                Image.asset(
+                  'assets/logo.png',
+                  width: 80,
+                ),
+                Text("Olá Usuário",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
+              ]),
+              Divider(
+                color: Colors.grey,
+              ),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 19,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // background
+                      onPrimary: Colors.red[900], // foreground
+                    ),
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    icon: Icon(Icons.person, size: 18),
+                    label: Text("Perfil      "),
+                  )),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 19,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // background
+                      onPrimary: Colors.red[900], // foreground
+                    ),
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    icon: Icon(Icons.person, size: 18),
+                    label: Text("Carteira digital      "),
+                  )),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 19,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // background
+                      onPrimary: Colors.red[900], // foreground
+                    ),
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    icon: Icon(Icons.person, size: 18),
+                    label: Text("Institucional      "),
+                  )),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 19,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // background
+                      onPrimary: Colors.red[900], // foreground
+                    ),
+                    onPressed: () {
+                      // Respond to button press
+                    },
+                    icon: Icon(Icons.person, size: 18),
+                    label: Text("Enquetes      "),
+                  )),
+              Divider(color: Colors.grey),
+              Row(children: [
+                Card(
                   child: Container(
-                      alignment: Alignment.centerLeft,
-                      width: 19,
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white, // background
-                          onPrimary: Colors.red[900], // foreground
-                        ),
-                        onPressed: () {
-                          // Respond to button press
-                        },
-                        icon: Icon(Icons.person, size: 18),
-                        label: Text("Perfil fdsfdfdf sfdfsd"),
-                      ))),
-              ListTile(
-                title: Text('Perfil'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Carteira Digital'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Enquetes'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Institucional'),
-                onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
-                },
-              ),
+                    //padding: EdgeInsets.all(20.0),
+                    height: 80,
+                    child: Column(
+                      children: <Widget>[
+                        Text('Macoratti .net'),
+                        Text('Quase tudo para .NET')
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Container(
+                    //padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text('Macoratti .net'),
+                        Text('Quase tudo para .NET')
+                      ],
+                    ),
+                  ),
+                ),
+              ])
             ],
           ),
         ),
