@@ -33,7 +33,7 @@ class _TelaLoginState extends State<TelaLogin> {
         }
       });
 
-  void login() {
+  login() {
     if (campoUsuarioController.text == "teste" &&
         campoSenhaController.text == "teste") {
       Navigator.push(
@@ -92,6 +92,8 @@ class _TelaLoginState extends State<TelaLogin> {
                   ),
                   TextFormField(
                     controller: campoSenhaController,
+                    obscureText: true,
+                    obscuringCharacter: "*",
                     cursorColor: Theme.of(context).cursorColor,
                     decoration: InputDecoration(
                       hintText: 'Senha',

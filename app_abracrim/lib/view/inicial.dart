@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:app_abracrim/view/login.dart';
+import 'package:app_abracrim/view/perfil.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +19,10 @@ class _TelaInicialState extends State<TelaInicial> {
   PageController pageController;
   List<String> lista = [
     "https://www.jornalismo.ufv.br/cinecom/wp-content/uploads/2020/10/303476-blondes-naruto-shippuden-anime-anime-boys-sage-mode-uzumaki-naruto-scaled.jpg",
-    "https://i.ytimg.com/vi/MKmuCNNwVz8/maxresdefault.jpg"
+    "https://i.ytimg.com/vi/MKmuCNNwVz8/maxresdefault.jpg",
+    "https://www.jornalismo.ufv.br/cinecom/wp-content/uploads/2020/10/303476-blondes-naruto-shippuden-anime-anime-boys-sage-mode-uzumaki-naruto-scaled.jpg",
   ];
+  final campoBuscaController = TextEditingController();
 
   @override
   void initState() {
@@ -75,14 +82,17 @@ class _TelaInicialState extends State<TelaInicial> {
                       onPrimary: Colors.red[900], // foreground
                     ),
                     onPressed: () {
-                      // Respond to button press
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TelaPerfil()));
                     },
                     icon: Icon(Icons.person, size: 18),
                     label: Text("Perfil      "),
                   )),
               Container(
                   alignment: Alignment.centerLeft,
-                  width: 19,
+                  width: 50,
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white, // background
@@ -91,7 +101,7 @@ class _TelaInicialState extends State<TelaInicial> {
                     onPressed: () {
                       // Respond to button press
                     },
-                    icon: Icon(Icons.person, size: 18),
+                    icon: Icon(Icons.credit_card, size: 18),
                     label: Text("Carteira digital      "),
                   )),
               Container(
@@ -105,7 +115,7 @@ class _TelaInicialState extends State<TelaInicial> {
                     onPressed: () {
                       // Respond to button press
                     },
-                    icon: Icon(Icons.person, size: 18),
+                    icon: Icon(Icons.business_outlined, size: 18),
                     label: Text("Institucional      "),
                   )),
               Container(
@@ -119,7 +129,7 @@ class _TelaInicialState extends State<TelaInicial> {
                     onPressed: () {
                       // Respond to button press
                     },
-                    icon: Icon(Icons.person, size: 18),
+                    icon: Icon(Icons.format_align_center_outlined, size: 18),
                     label: Text("Enquetes      "),
                   )),
               Divider(color: Colors.grey),
@@ -127,27 +137,119 @@ class _TelaInicialState extends State<TelaInicial> {
                 Card(
                   child: Container(
                     //padding: EdgeInsets.all(20.0),
-                    height: 80,
+                    height: 90,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     child: Column(
                       children: <Widget>[
-                        Text('Macoratti .net'),
-                        Text('Quase tudo para .NET')
+                        Text(""),
+                        Icon(
+                          Icons.notifications_active,
+                          size: 35,
+                          color: Colors.red[900],
+                        ),
+                        Text(
+                          'Cadastro de',
+                          style: TextStyle(
+                              color: Colors.red[900],
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Ocorrência',
+                          style: TextStyle(
+                              color: Colors.red[900],
+                              fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                   ),
                 ),
                 Card(
                   child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red[900],
+                        gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [
+                            Colors.red[600],
+                            Colors.red[900],
+                          ],
+                        )),
+
                     //padding: EdgeInsets.all(20.0),
+                    height: 90,
+                    width: 100,
                     child: Column(
                       children: <Widget>[
-                        Text('Macoratti .net'),
-                        Text('Quase tudo para .NET')
+                        Text(""),
+                        Icon(
+                          Icons.file_copy,
+                          size: 35,
+                          color: Colors.white,
+                        ),
+                        Text('Publicar',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold)),
+                        Text(
+                          'artigo',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ])
+              ]),
+              Divider(color: Colors.grey),
+              Text(""),
+              Text(""),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  width: 19,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white, // background
+                      onPrimary: Colors.red[900], // foreground
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TelaLogin()),
+                      );
+                    },
+                    icon: Icon(Icons.arrow_back, size: 18),
+                    label: Text(
+                      "Sair da conta",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              Text(""),
+              Divider(color: Colors.grey),
+              Text(""),
+              Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.instagram,
+                    color: Colors.red[900],
+                    size: 30,
+                  ),
+                  Text(
+                    "@abracrimnacional",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                      color: Colors.red[900],
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
@@ -176,7 +278,7 @@ class _TelaInicialState extends State<TelaInicial> {
           type: BottomNavigationBarType.fixed,
           //onTap: {},
         ),
-        body: Container(
+        body: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Column(
@@ -200,50 +302,6 @@ class _TelaInicialState extends State<TelaInicial> {
                           ),
                         ],
                       ),
-                      /*
-                      
-                      ImageSlideshow(
-                        /// Width of the [ImageSlideshow].
-                        width: double.infinity,
-
-                        /// Height of the [ImageSlideshow].
-                        height: 100,
-
-                        /// The page to show when first creating the [ImageSlideshow].
-                        initialPage: 0,
-
-                        /// The color to paint the indicator.
-                        indicatorColor: Colors.blue,
-
-                        /// The color to paint behind th indicator.
-                        indicatorBackgroundColor: Colors.grey,
-
-                        /// The widgets to display in the [ImageSlideshow].
-                        /// Add the sample image file into the images folder
-                        children: [
-                          Image.asset(
-                            'assets/logo.png',
-                            fit: BoxFit.cover,
-                          ),
-                          Image.asset(
-                            'assets/logo.png',
-                            fit: BoxFit.cover,
-                          ),
-                          Image.asset(
-                            'assets/logo.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ],
-
-                        /// Called whenever the page in the center of the viewport changes.
-                        onPageChanged: (value) {},
-
-                        /// Auto scroll interval.
-                        /// Do not auto scroll with null or 0.
-                        autoPlayInterval: 3000,
-                      ),
-                      */
-
                       CarouselSlider(
                         options: CarouselOptions(
                             height: 80.0,
@@ -302,6 +360,68 @@ class _TelaInicialState extends State<TelaInicial> {
                           );
                         }).toList(),
                       ),
+                      Text(""),
+
+                      /*
+                      CarouselSlider(
+                        options: CarouselOptions(height: 30.0),
+                        items: [1, 2, 3, 4, 5].map((i) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return Container(
+                                width: MediaQuery.of(context).size.width / 3,
+                                margin: EdgeInsets.symmetric(horizontal: 1.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.green,
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Text("Eventos",
+                                      style: TextStyle(color: Colors.white)),
+                                ),
+                              );
+                            },
+                          );
+                        }).toList(),
+                      ),*/
+
+                      Text(""),
+                      Text(""),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Notícias"),
+                          Container(
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              //height: 10,
+                              alignment: Alignment.topLeft,
+                              child: TextFormField(
+                                controller: campoBuscaController,
+                                cursorColor: Theme.of(context).cursorColor,
+                                style: TextStyle(fontSize: 13),
+                                decoration: InputDecoration(
+                                  hintText: 'Buscar em Notícias',
+                                  icon: Icon(
+                                    Icons.search,
+                                    color: Colors.grey,
+                                  ),
+                                  contentPadding: EdgeInsets.all(20.0),
+                                ),
+                              )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 1000,
+                        child: ListView(
+                            children: lista
+                                .map((element) => Card(
+                                        child: Column(
+                                      children: <Widget>[
+                                        Image.network(element),
+                                      ],
+                                    )))
+                                .toList()),
+                      )
                     ]))));
   }
 }
