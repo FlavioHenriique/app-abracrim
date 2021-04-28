@@ -44,6 +44,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                     //mainAxisAlignment: MainAxisAlignment.center,
+
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,78 +90,127 @@ class _TelaPerfilState extends State<TelaPerfil> {
                       Text(""),
                       Text(""),
                       Container(
-                          height: 70,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(40),
-                              bottomRight: Radius.circular(40),
-                            ),
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey,
-                              style: BorderStyle.solid,
-                            ),
+                        height: 70,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40),
+                            bottomRight: Radius.circular(40),
                           ),
-                          child: Row(
-                            children: [
-                              IconButton(
-                                icon: Icon(Icons.message, size: 30),
-                                color: Colors.red[900],
-                                highlightColor: Colors.red[900],
-                              ),
-                              Table(
-                                  defaultColumnWidth: FixedColumnWidth(200.0),
-                                  children: [
-                                    TableRow(children: [
-                                      Text('E-mail'),
-                                    ]),
-                                    TableRow(children: [
-                                      Text(
-                                        'usuario@gmail.com',
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    ]),
-                                  ])
-                            ],
-                          )),
+                          border: Border.all(
+                            width: 1,
+                            color: Colors.grey,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.message, size: 30),
+                            ),
+                            Table(
+                                defaultColumnWidth: FixedColumnWidth(200.0),
+                                children: [
+                                  TableRow(children: [
+                                    Text('E-mail'),
+                                  ]),
+                                  TableRow(children: [
+                                    Text(
+                                      'usuario@gmail.com',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ]),
+                                ])
+                          ],
+                        ),
+                      ),
                       Text(""),
-                      Container(
-                          height: 70,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(40),
-                              bottomRight: Radius.circular(40),
-                            ),
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey,
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              IconButton(
-                                icon: Icon(Icons.lock, size: 30),
-                                color: Colors.red[900],
-                                highlightColor: Colors.red[900],
-                              ),
-                              Table(
-                                  defaultColumnWidth: FixedColumnWidth(200.0),
-                                  children: [
-                                    TableRow(children: [
-                                      Text('Senha'),
-                                    ]),
-                                    TableRow(children: [
-                                      Text(
-                                        '*******',
-                                        style: TextStyle(color: Colors.grey),
+                      Stack(children: <Widget>[
+                        Positioned.fill(
+                            child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                    height: 35,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.9,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
                                       ),
-                                    ]),
-                                  ])
-                            ],
-                          )),
+                                      color: Colors.red[900],
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Colors.grey,
+                                        style: BorderStyle.solid,
+                                      ),
+                                    ),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            child: Text("",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                )),
+                                          ),
+                                          GestureDetector(
+                                            child: Text("Alterar         ",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12.0,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ),
+                                        ])))),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 70,
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(40),
+                                  bottomRight: Radius.circular(40),
+                                ),
+                                border: Border.all(
+                                  width: 1,
+                                  color: Colors.grey,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  IconButton(
+                                    icon: Icon(Icons.lock, size: 30),
+                                    color: Colors.red[900],
+                                    highlightColor: Colors.red[900],
+                                  ),
+                                  Table(
+                                      defaultColumnWidth:
+                                          FixedColumnWidth(200.0),
+                                      children: [
+                                        TableRow(children: [
+                                          Text('Senha'),
+                                        ]),
+                                        TableRow(children: [
+                                          Text(
+                                            '*******',
+                                            style:
+                                                TextStyle(color: Colors.grey),
+                                          ),
+                                        ]),
+                                      ])
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
                       Text(""),
                       Container(
                           height: 70,
@@ -199,29 +249,76 @@ class _TelaPerfilState extends State<TelaPerfil> {
                             ],
                           )),
                       Text(""),
-                      Container(
-                          height: 70,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(40),
-                              bottomRight: Radius.circular(40),
-                            ),
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey,
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                "      Validade até: ",
-                                style: TextStyle(color: Colors.grey),
+                      Stack(children: <Widget>[
+                        Positioned.fill(
+                            child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                    height: 35,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.9,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
+                                      ),
+                                      color: Colors.red[900],
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Colors.grey,
+                                        style: BorderStyle.solid,
+                                      ),
+                                    ),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            child: Text("",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                )),
+                                          ),
+                                          GestureDetector(
+                                            child: Text("Renovar      ",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12.0,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ),
+                                        ])))),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 70,
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(40),
+                                  bottomRight: Radius.circular(40),
+                                ),
+                                border: Border.all(
+                                  width: 1,
+                                  color: Colors.grey,
+                                  style: BorderStyle.solid,
+                                ),
                               ),
-                              Text("25/08/2021")
-                            ],
-                          )),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "      Validade até: ",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  Text("25/08/2021")
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ]),
                       Text(""),
                       Text(""),
                       Row(
@@ -368,6 +465,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                           ]),
                         ],
                       ),
+                      Text(""),
                     ]))));
   }
 }

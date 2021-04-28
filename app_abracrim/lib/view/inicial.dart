@@ -73,65 +73,311 @@ class _TelaInicialState extends State<TelaInicial> {
               Divider(
                 color: Colors.grey,
               ),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  width: 19,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // background
-                      onPrimary: Colors.red[900], // foreground
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TelaPerfil()));
-                    },
-                    icon: Icon(Icons.person, size: 18),
-                    label: Text("Perfil      "),
-                  )),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  width: 50,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // background
-                      onPrimary: Colors.red[900], // foreground
-                    ),
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    icon: Icon(Icons.credit_card, size: 18),
-                    label: Text("Carteira digital      "),
-                  )),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  width: 19,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // background
-                      onPrimary: Colors.red[900], // foreground
-                    ),
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    icon: Icon(Icons.business_outlined, size: 18),
-                    label: Text("Institucional      "),
-                  )),
-              Container(
-                  alignment: Alignment.centerLeft,
-                  width: 19,
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white, // background
-                      onPrimary: Colors.red[900], // foreground
-                    ),
-                    onPressed: () {
-                      // Respond to button press
-                    },
-                    icon: Icon(Icons.format_align_center_outlined, size: 18),
-                    label: Text("Enquetes      "),
-                  )),
+              Stack(children: <Widget>[
+                Positioned.fill(
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(40),
+                                bottomRight: Radius.circular(40),
+                              ),
+                              color: Colors.red[900],
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    child: Text("",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  GestureDetector(
+                                    child: Text("> ",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ])))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaPerfil()));
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(40),
+                              bottomRight: Radius.circular(40),
+                            ),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.person, size: 30),
+                                color: Colors.red[900],
+                                highlightColor: Colors.red[900],
+                              ),
+                              Text("Perfil"),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ]),
+              Stack(children: <Widget>[
+                Positioned.fill(
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(40),
+                                bottomRight: Radius.circular(40),
+                              ),
+                              color: Colors.red[900],
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    child: Text("",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  GestureDetector(
+                                    child: Text("> ",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ])))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaPerfil()));
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(40),
+                              bottomRight: Radius.circular(40),
+                            ),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.credit_card, size: 30),
+                                color: Colors.red[900],
+                                highlightColor: Colors.red[900],
+                              ),
+                              Text("Carteira Digital"),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ]),
+              Stack(children: <Widget>[
+                Positioned.fill(
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(40),
+                                bottomRight: Radius.circular(40),
+                              ),
+                              color: Colors.red[900],
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    child: Text("",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  GestureDetector(
+                                    child: Text("> ",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ])))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaPerfil()));
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(40),
+                              bottomRight: Radius.circular(40),
+                            ),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.business_outlined, size: 30),
+                                color: Colors.red[900],
+                                highlightColor: Colors.red[900],
+                              ),
+                              Text("Institucional"),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ]),
+              Stack(children: <Widget>[
+                Positioned.fill(
+                    child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(40),
+                                bottomRight: Radius.circular(40),
+                              ),
+                              color: Colors.red[900],
+                              border: Border.all(
+                                width: 1,
+                                color: Colors.grey,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    child: Text("",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  GestureDetector(
+                                    child: Text("> ",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            fontWeight: FontWeight.bold)),
+                                  ),
+                                ])))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaPerfil()));
+                        },
+                        child: Container(
+                          height: 60,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(40),
+                              bottomRight: Radius.circular(40),
+                            ),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.format_align_center_outlined,
+                                    size: 30),
+                                color: Colors.red[900],
+                                highlightColor: Colors.red[900],
+                              ),
+                              Text("Enquetes"),
+                            ],
+                          ),
+                        )),
+                  ],
+                ),
+              ]),
               Divider(color: Colors.grey),
               Row(children: [
                 Card(
