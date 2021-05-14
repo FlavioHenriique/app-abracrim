@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:app_abracrim/view/convenios.dart';
 import 'package:app_abracrim/view/login.dart';
 import 'package:app_abracrim/view/perfil.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -65,6 +66,7 @@ class _TelaInicialState extends State<TelaInicial> {
                   'assets/logo.png',
                   width: 80,
                 ),
+                Text(""),
                 Text("Olá Usuário",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -79,7 +81,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                             height: 60,
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(40),
@@ -122,7 +124,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         },
                         child: Container(
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: 180,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
@@ -142,7 +144,12 @@ class _TelaInicialState extends State<TelaInicial> {
                                 color: Colors.red[900],
                                 highlightColor: Colors.red[900],
                               ),
-                              Text("Perfil"),
+                              Text(
+                                "Perfil",
+                                style: TextStyle(
+                                    color: Colors.red[900],
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         )),
@@ -155,7 +162,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                             height: 60,
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(40),
@@ -198,7 +205,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         },
                         child: Container(
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: 180,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
@@ -218,7 +225,12 @@ class _TelaInicialState extends State<TelaInicial> {
                                 color: Colors.red[900],
                                 highlightColor: Colors.red[900],
                               ),
-                              Text("Carteira Digital"),
+                              Text(
+                                "Carteira Digital",
+                                style: TextStyle(
+                                    color: Colors.red[900],
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         )),
@@ -231,7 +243,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                             height: 60,
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(40),
@@ -274,7 +286,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         },
                         child: Container(
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: 180,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
@@ -294,7 +306,12 @@ class _TelaInicialState extends State<TelaInicial> {
                                 color: Colors.red[900],
                                 highlightColor: Colors.red[900],
                               ),
-                              Text("Institucional"),
+                              Text(
+                                "Institucional",
+                                style: TextStyle(
+                                    color: Colors.red[900],
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         )),
@@ -307,7 +324,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                             height: 60,
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(40),
@@ -350,7 +367,7 @@ class _TelaInicialState extends State<TelaInicial> {
                         },
                         child: Container(
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: 180,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
@@ -371,7 +388,12 @@ class _TelaInicialState extends State<TelaInicial> {
                                 color: Colors.red[900],
                                 highlightColor: Colors.red[900],
                               ),
-                              Text("Enquetes"),
+                              Text(
+                                "Enquetes",
+                                style: TextStyle(
+                                    color: Colors.red[900],
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ],
                           ),
                         )),
@@ -540,6 +562,13 @@ class _TelaInicialState extends State<TelaInicial> {
                                 )),
                           ),
                           GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TelaConvenios()),
+                              );
+                            },
                             child: Text("Ver mais",
                                 style: TextStyle(
                                     color: Colors.red[900],
@@ -660,12 +689,133 @@ class _TelaInicialState extends State<TelaInicial> {
                         height: 1000,
                         child: ListView(
                             children: lista
-                                .map((element) => Card(
+                                .map((element) =>
+                                    /*Card(
                                         child: Column(
                                       children: <Widget>[
                                         Image.network(element),
                                       ],
-                                    )))
+                                    )))*/
+                                    Card(
+                                      child: InkWell(
+                                        child: Column(children: [
+                                          Image.network(element),
+                                          Text(""),
+                                          Text(
+                                            "Brasília - Deputados aprovam aumento de pena para estelionato",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(""),
+                                          Text(
+                                              "O presidente do superior tribunal de justiça(STJ) Ministro..."),
+                                          Text(""),
+                                          Stack(children: <Widget>[
+                                            Positioned.fill(
+                                                child: Align(
+                                                    alignment: Alignment
+                                                        .bottomCenter,
+                                                    child: Container(
+                                                        height: 35,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.9,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    30),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    30),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    30),
+                                                          ),
+                                                          color: Colors
+                                                              .yellow[800],
+                                                          border: Border.all(
+                                                            width: 1,
+                                                            color: Colors.grey,
+                                                            style: BorderStyle
+                                                                .none,
+                                                          ),
+                                                        ),
+                                                        child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              GestureDetector(
+                                                                child: Text("",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    )),
+                                                              ),
+                                                              GestureDetector(
+                                                                child: Text(
+                                                                    "Ler mais ->   ",
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold)),
+                                                              ),
+                                                            ])))),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                  height: 35,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.7,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    border: Border.all(
+                                                      width: 1,
+                                                      color: Colors.grey,
+                                                      style: BorderStyle.none,
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    children: [
+                                                      IconButton(
+                                                        icon: Icon(
+                                                            Icons
+                                                                .calendar_today_rounded,
+                                                            size: 15),
+                                                        color: Colors.red[900],
+                                                        highlightColor:
+                                                            Colors.red[900],
+                                                      ),
+                                                      Text(
+                                                        "07 de Janeiro de 2021",
+                                                        style: TextStyle(
+                                                            fontSize: 10,
+                                                            color: Colors.grey),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ]),
+                                        ]),
+                                      ),
+                                    ))
                                 .toList()),
                       )
                     ]))));
