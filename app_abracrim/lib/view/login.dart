@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:circular_check_box/circular_check_box.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'inicial.dart';
 
@@ -46,9 +47,11 @@ class _TelaLoginState extends State<TelaLogin> {
         MaterialPageRoute(builder: (context) => TelaInicial()),
       );
     } else {
-      Scaffold.of(context).showSnackBar(SnackBar(
-        content: Text("Usuário não encontrado"),
-      ));
+      Fluttertoast.showToast(
+          msg: "Usuário não encontrado!",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1);
     }
   }
 

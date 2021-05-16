@@ -24,6 +24,7 @@ class _TelaInicialState extends State<TelaInicial> {
     "https://www.jornalismo.ufv.br/cinecom/wp-content/uploads/2020/10/303476-blondes-naruto-shippuden-anime-anime-boys-sage-mode-uzumaki-naruto-scaled.jpg",
   ];
   final campoBuscaController = TextEditingController();
+  bool momentoAbracrim = false;
 
   @override
   void initState() {
@@ -33,6 +34,7 @@ class _TelaInicialState extends State<TelaInicial> {
 
   @override
   Widget build(BuildContext context) {
+    print("buildando");
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -577,32 +579,100 @@ class _TelaInicialState extends State<TelaInicial> {
                           ),
                         ],
                       ),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                            height: 80.0,
-                            enlargeCenterPage: true,
-                            enlargeStrategy: CenterPageEnlargeStrategy.height),
-                        items: [1, 2, 3, 4, 5].map((i) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width / 3,
-                                margin: EdgeInsets.symmetric(horizontal: 0.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    'assets/logo.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        }).toList(),
-                      ),
+                      Container(
+                          margin: EdgeInsets.symmetric(vertical: 40.0),
+                          height: 100,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 3,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 3,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 3,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width:
+                                          MediaQuery.of(context).size.width / 3,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 3,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'assets/logo.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )),
+                              ),
+                            ],
+                          )),
                       Row(
                         children: [
                           Text("Destaques",
@@ -612,60 +682,209 @@ class _TelaInicialState extends State<TelaInicial> {
                               ))
                         ],
                       ),
-                      CarouselSlider(
-                        options: CarouselOptions(height: 100.0),
-                        items: [1, 2, 3, 4, 5].map((i) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width / 1.5,
-                                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.asset(
-                                    'assets/logo.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        }).toList(),
-                      ),
+                      Container(
+                          margin: EdgeInsets.symmetric(vertical: 20.0),
+                          height: 100,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                          'assets/logo.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ))),
+                            ],
+                          )),
                       Text(""),
-
-                      /*
-                      CarouselSlider(
-                        options: CarouselOptions(height: 30.0),
-                        items: [1, 2, 3, 4, 5].map((i) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                width: MediaQuery.of(context).size.width / 3,
-                                margin: EdgeInsets.symmetric(horizontal: 1.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.green,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Text("Eventos",
-                                      style: TextStyle(color: Colors.white)),
-                                ),
-                              );
-                            },
-                          );
-                        }).toList(),
-                      ),*/
-
-                      Text(""),
+                      Container(
+                          margin: EdgeInsets.symmetric(vertical: 20.0),
+                          height: 25,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              momentoAbracrim
+                                  ? GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          momentoAbracrim = true;
+                                          print(momentoAbracrim);
+                                        });
+                                      },
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          child: Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 5.0),
+                                            width: 140.0,
+                                            color: Colors.blue,
+                                            child: Text(
+                                              "Notícias",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          )))
+                                  : GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          momentoAbracrim = false;
+                                          print(momentoAbracrim);
+                                        });
+                                      },
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          child: Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 5.0),
+                                            width: 140.0,
+                                            color: Colors.red,
+                                            child: Text(
+                                              "Momento Abracrim",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ))),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    width: 70.0,
+                                    color: Colors.purple,
+                                    child: Text(
+                                      "Eventos",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    width: 70.0,
+                                    color: Colors.green,
+                                    child: Text(
+                                      "Artigos",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )),
+                              ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    width: 70.0,
+                                    color: Colors.yellow,
+                                    child: Text(
+                                      "Notas",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )),
+                            ],
+                          )),
                       Text(""),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Notícias"),
+                          Text(
+                            "Notícias",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 17),
+                          ),
                           Container(
                               width: MediaQuery.of(context).size.width / 1.5,
                               //height: 10,
