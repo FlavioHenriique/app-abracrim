@@ -24,11 +24,12 @@ class _TelaInicialState extends State<TelaInicial> {
     "https://www.jornalismo.ufv.br/cinecom/wp-content/uploads/2020/10/303476-blondes-naruto-shippuden-anime-anime-boys-sage-mode-uzumaki-naruto-scaled.jpg",
   ];
   final campoBuscaController = TextEditingController();
-  bool momentoAbracrim = false;
+  bool momentoAbracrim;
 
   @override
   void initState() {
     super.initState();
+    momentoAbracrim = true;
     pageController = PageController(initialPage: 1, viewportFraction: 0.8);
   }
 
@@ -782,21 +783,20 @@ class _TelaInicialState extends State<TelaInicial> {
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: <Widget>[
-                              momentoAbracrim
-                                  ? GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          momentoAbracrim = true;
-                                          print(momentoAbracrim);
-                                        });
-                                      },
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
+                              GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      momentoAbracrim = false;
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Visibility(
+                                          visible: momentoAbracrim,
                                           child: Container(
                                             margin: EdgeInsets.symmetric(
                                                 horizontal: 5.0),
-                                            width: 140.0,
+                                            width: 80.0,
                                             color: Colors.blue,
                                             child: Text(
                                               "Notícias",
@@ -805,17 +805,17 @@ class _TelaInicialState extends State<TelaInicial> {
                                                   fontWeight: FontWeight.bold),
                                               textAlign: TextAlign.center,
                                             ),
-                                          )))
-                                  : GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          momentoAbracrim = false;
-                                          print(momentoAbracrim);
-                                        });
-                                      },
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
+                                          )))),
+                              GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      momentoAbracrim = true;
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Visibility(
+                                          visible: !momentoAbracrim,
                                           child: Container(
                                             margin: EdgeInsets.symmetric(
                                                 horizontal: 5.0),
@@ -828,7 +828,7 @@ class _TelaInicialState extends State<TelaInicial> {
                                                   fontWeight: FontWeight.bold),
                                               textAlign: TextAlign.center,
                                             ),
-                                          ))),
+                                          )))),
                               ClipRRect(
                                   borderRadius: BorderRadius.circular(30),
                                   child: Container(
@@ -877,166 +877,296 @@ class _TelaInicialState extends State<TelaInicial> {
                             ],
                           )),
                       Text(""),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Notícias",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 17),
-                          ),
-                          Container(
-                              width: MediaQuery.of(context).size.width / 1.5,
-                              //height: 10,
-                              alignment: Alignment.topLeft,
-                              child: TextFormField(
-                                controller: campoBuscaController,
-                                cursorColor: Theme.of(context).cursorColor,
-                                style: TextStyle(fontSize: 13),
-                                decoration: InputDecoration(
-                                  hintText: 'Buscar em Notícias',
-                                  icon: Icon(
-                                    Icons.search,
-                                    color: Colors.grey,
-                                  ),
-                                  contentPadding: EdgeInsets.all(20.0),
+                      Visibility(
+                          visible: momentoAbracrim,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Momento Abracrim",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),
+                            ],
+                          )),
+                      Visibility(
+                          visible: momentoAbracrim,
+                          child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              child: Card(
+                                  child: Column(children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      icon: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child:
+                                              Image.asset('assets/logo.png')),
+                                    ),
+                                    Text(
+                                      "Usuário 1",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      " publicou um novo momento",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 10),
+                                    ),
+                                  ],
                                 ),
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 1000,
-                        child: ListView(
-                            children: lista
-                                .map((element) =>
-                                    /*Card(
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(40),
+                                  child: Image.asset(
+                                    'assets/logo.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Text("Muito boa companhia!"),
+                                Container(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      " 07 de janeiro de 2021",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 10,
+                                      ),
+                                    )),
+                              ])))),
+                      Visibility(
+                          visible: momentoAbracrim,
+                          child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              child: Card(
+                                  child: Column(children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      icon: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child:
+                                              Image.asset('assets/logo.png')),
+                                    ),
+                                    Text(
+                                      "Usuário 1",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      " publicou um novo momento",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(40),
+                                  child: Image.asset(
+                                    'assets/logo.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Text("Muito boa companhia!"),
+                                Container(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      " 07 de janeiro de 2021",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 10,
+                                      ),
+                                    )),
+                                Text(""),
+                              ])))),
+                      Visibility(
+                          visible: !momentoAbracrim,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Notícias",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),
+                              Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 1.5,
+                                  //height: 10,
+                                  alignment: Alignment.topLeft,
+                                  child: TextFormField(
+                                    controller: campoBuscaController,
+                                    cursorColor: Theme.of(context).cursorColor,
+                                    style: TextStyle(fontSize: 13),
+                                    decoration: InputDecoration(
+                                      hintText: 'Buscar em Notícias',
+                                      icon: Icon(
+                                        Icons.search,
+                                        color: Colors.grey,
+                                      ),
+                                      contentPadding: EdgeInsets.all(20.0),
+                                    ),
+                                  )),
+                            ],
+                          )),
+                      Visibility(
+                          visible: !momentoAbracrim,
+                          child: SizedBox(
+                            height: 1000,
+                            child: ListView(
+                                children: lista
+                                    .map((element) =>
+                                        /*Card(
                                         child: Column(
                                       children: <Widget>[
                                         Image.network(element),
                                       ],
                                     )))*/
-                                    Card(
-                                      child: InkWell(
-                                        child: Column(children: [
-                                          Image.network(element),
-                                          Text(""),
-                                          Text(
-                                            "Brasília - Deputados aprovam aumento de pena para estelionato",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(""),
-                                          Text(
-                                              "O presidente do superior tribunal de justiça(STJ) Ministro..."),
-                                          Text(""),
-                                          Stack(children: <Widget>[
-                                            Positioned.fill(
-                                                child: Align(
-                                                    alignment: Alignment
-                                                        .bottomCenter,
-                                                    child: Container(
-                                                        height: 35,
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.9,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    30),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    30),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    30),
-                                                          ),
-                                                          color: Colors
-                                                              .yellow[800],
-                                                          border: Border.all(
-                                                            width: 1,
-                                                            color: Colors.grey,
-                                                            style: BorderStyle
-                                                                .none,
-                                                          ),
+                                        Card(
+                                          child: InkWell(
+                                            child: Column(children: [
+                                              Image.network(element),
+                                              Text(""),
+                                              Text(
+                                                "Brasília - Deputados aprovam aumento de pena para estelionato",
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Text(""),
+                                              Text(
+                                                  "O presidente do superior tribunal de justiça(STJ) Ministro..."),
+                                              Text(""),
+                                              Stack(children: <Widget>[
+                                                Positioned.fill(
+                                                    child: Align(
+                                                        alignment: Alignment
+                                                            .bottomCenter,
+                                                        child: Container(
+                                                            height: 35,
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.9,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        30),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        30),
+                                                                bottomRight:
+                                                                    Radius
+                                                                        .circular(
+                                                                            30),
+                                                              ),
+                                                              color: Colors
+                                                                  .yellow[800],
+                                                              border:
+                                                                  Border.all(
+                                                                width: 1,
+                                                                color:
+                                                                    Colors.grey,
+                                                                style:
+                                                                    BorderStyle
+                                                                        .none,
+                                                              ),
+                                                            ),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  GestureDetector(
+                                                                    child: Text(
+                                                                        "",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                        )),
+                                                                  ),
+                                                                  GestureDetector(
+                                                                    child: Text(
+                                                                        "Ler mais ->   ",
+                                                                        style: TextStyle(
+                                                                            color: Colors
+                                                                                .white,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                  ),
+                                                                ])))),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Container(
+                                                      height: 35,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.7,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        border: Border.all(
+                                                          width: 1,
+                                                          color: Colors.grey,
+                                                          style:
+                                                              BorderStyle.none,
                                                         ),
-                                                        child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              GestureDetector(
-                                                                child: Text("",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    )),
-                                                              ),
-                                                              GestureDetector(
-                                                                child: Text(
-                                                                    "Ler mais ->   ",
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        fontWeight:
-                                                                            FontWeight.bold)),
-                                                              ),
-                                                            ])))),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Container(
-                                                  height: 35,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.7,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    border: Border.all(
-                                                      width: 1,
-                                                      color: Colors.grey,
-                                                      style: BorderStyle.none,
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    children: [
-                                                      IconButton(
-                                                        icon: Icon(
-                                                            Icons
-                                                                .calendar_today_rounded,
-                                                            size: 15),
-                                                        color: Colors.red[900],
-                                                        highlightColor:
-                                                            Colors.red[900],
                                                       ),
-                                                      Text(
-                                                        "07 de Janeiro de 2021",
-                                                        style: TextStyle(
-                                                            fontSize: 10,
-                                                            color: Colors.grey),
-                                                      )
-                                                    ],
-                                                  ),
+                                                      child: Row(
+                                                        children: [
+                                                          IconButton(
+                                                            icon: Icon(
+                                                                Icons
+                                                                    .calendar_today_rounded,
+                                                                size: 15),
+                                                            color:
+                                                                Colors.red[900],
+                                                            highlightColor:
+                                                                Colors.red[900],
+                                                          ),
+                                                          Text(
+                                                            "07 de Janeiro de 2021",
+                                                            style: TextStyle(
+                                                                fontSize: 10,
+                                                                color: Colors
+                                                                    .grey),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
-                                          ]),
-                                        ]),
-                                      ),
-                                    ))
-                                .toList()),
-                      )
-                    ]))));
+                                              ]),
+                                            ]),
+                                          ),
+                                        ))
+                                    .toList()),
+                          ))
+                    ]))),
+        floatingActionButton: Visibility(
+            visible: momentoAbracrim,
+            child: FloatingActionButton(
+              onPressed: () {
+                // Add your onPressed code here!
+              },
+              child: const Icon(
+                Icons.camera_alt,
+                color: Colors.red,
+              ),
+              backgroundColor: Colors.white,
+            )));
   }
 }
